@@ -1,0 +1,10 @@
+<h1>Welcome!</h1>
+
+<%= simple_form_for @user do |f| %>
+  <%= f.input :first_name, label: "First Name" %>
+  <%= f.input :last_name, label: "Last Name" %>
+  <%= f.input :email %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation, label: "Sorry, evidently I have to ask again" %>
+  <%= f.submit "Create Account", class: "btn btn-primary" %>
+<% end %>
