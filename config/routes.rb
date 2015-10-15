@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   post "sign_in" => 'sessions#create'
   delete "sign_in" => 'sessions#destroy', as: :sign_out
 
+  get "cart" => 'carts#show', as: :shopping_cart
+  post "/carts/add/:taco_id" => "carts#add", as: :add_to_cart
+  delete "/carts/remove/:taco_id" => 'carts#remove', as: :remove_from_cart
 
 
   # The priority is based upon order of creation: first created -> highest priority.

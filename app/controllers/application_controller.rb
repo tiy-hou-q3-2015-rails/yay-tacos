@@ -7,6 +7,13 @@ class ApplicationController < ActionController::Base
     @current_user = User.find_by id: session[:user_id]
   end
 
+  def authenticate_user!
+    if @current_user.blank?
+      redirect_to sign_in_path, notice: "You have to sign in"
+    end
+  end
+
+
   def sign_in user
     session[:user_id] = user.id
   end
