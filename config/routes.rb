@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  root 'tacos#index'
+
+  get "sign_up" => 'users#new', as: :sign_up
+  post "sign_up" => 'users#create', as: :users
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
