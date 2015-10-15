@@ -1,0 +1,18 @@
+language: ruby
+rvm:
+- 2.2.3
+addons:
+  postgresql: '9.4'
+before_script:
+- psql -c 'create database travis_ci_test;' -U postgres
+- cp config/database.yml.travis config/database.yml
+deploy:
+  provider: heroku
+  api_key:
+    secure: i4Hd8Vs206GDemYNKaxyHVnz8E+sPdIK209CQ0Sc9GX663rGHmSMwj3zydV6IBMB2bg4091kuNp+1spjaQO92xI+uGOOZY4DlvB3YPp8/tnegtcgt5guPHtA+KNK1g0QPOR5Y2dZzylU04ZClKoeIPDOS1MXuBYRyiisJeu1mT6vrY6AYqvOhh5eTyzyrzOPwWLRV3ulGSO2Fa73X7l4BOkOP663atZHqlPlMTCX+e4izCRx2M8296nxwum84iv/LTOwjrtlEkowPF19QII04FYWsdhEMgizdKnBUZS0fCvwuq3pHpNT/Dss7bXY7P6qss34O8dqQPTPtM43EchCWi033qbVjvsL0wGLZGQmKfDjTIlBJ3miYJ1ItUVwGzmA/nKJdby+9V98oi2tBGGtUeRnAQx7Z/9++H+oBLm6s5eSDH15riaCVFlsLc4QTVblaRnHtYsaB1uBCNOB1wcGOoH0urCQwPxhwJKRE8jvZ6TVw6/rvAAVlAQFidmC6A2Mr4YdJwBqSbT+ggGpXlj4PH1ItKd8bChkcBidbK9togKpu204Gapul37VP5BfSkY9vPVrKxe+HSqsN5VRmzl1WuNEYQ+Eie6p5/vY5bFnOxyr8RaSqnoXs/xQHp1ZAuGScPPl9LN7ifyXOHKSCkNOJaByMmHAS0QLAb4z43tcId0=
+  app: yaytacos
+  on:
+    repo: tiy-hou-q3-2015-rails/yay-tacos
+  run:
+    - "rake db:migrate"
+    - "rake cleanup"
