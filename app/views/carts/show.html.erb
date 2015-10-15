@@ -1,0 +1,26 @@
+<div class="page-header">
+  <h1>Your Taco Cart <small>No Lettuce</small></h1>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Taco</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Cancel</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cart.cart_items.each do |cart_item| %>
+      <tr id="taco-<%= cart_item.taco.id %>">
+        <td><%= cart_item.taco.name %></td>
+        <td><%= number_to_currency cart_item.price %></td>
+        <td><div class="quantity"><%= cart_item.quantity %></div></td>
+        <td><%= link_to 'Remove', remove_from_cart_path(taco_id: cart_item.taco.id), method: :delete, class: "btn btn-danger" %></td>
+      </tr>
+
+    <% end %>
+  </tbody>
+</table>
