@@ -14,6 +14,7 @@ class SignUpTest < Capybara::Rails::TestCase
     click_button "Create Account"
 
     assert_content page, "Welcome to YayTacos, Jesse"
+    assert_content page, "Hi Jesse"
 
   end
 end
