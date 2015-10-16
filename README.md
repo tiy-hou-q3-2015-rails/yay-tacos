@@ -1,6 +1,8 @@
 YayTacos
 =========
 
+[![Build Status](https://travis-ci.org/tiy-hou-q3-2015-rails/yay-tacos.svg?branch=master)](https://travis-ci.org/tiy-hou-q3-2015-rails/yay-tacos)
+
 
 A Taco joint.
 
