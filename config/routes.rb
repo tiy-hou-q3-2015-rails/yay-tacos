@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  mount Payola::Engine => '/payola', as: :payola
   root 'tacos#index'
 
   get "sign_up" => 'users#new', as: :sign_up
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
   get "cart" => 'carts#show', as: :shopping_cart
   post "/carts/add/:taco_id" => "carts#add", as: :add_to_cart
   delete "/carts/remove/:taco_id" => 'carts#remove', as: :remove_from_cart
+  get "confirmation/:sale_guid" => 'carts#confirmation', as: :confirmation
 
 
   # The priority is based upon order of creation: first created -> highest priority.
